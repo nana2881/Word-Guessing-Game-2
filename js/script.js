@@ -1,7 +1,12 @@
 const inputs = document.querySelector(".inputs");
 resetBtn= document.querySelector(".reset-btn");
 hint = document.querySelector(".hint span");
+wrongLetter = document.querySelector(".wrong-letter span")
 typingInput = document.querySelector(".typing-input");
+
+
+
+let word, incorrects = [];
 
 
 
@@ -21,7 +26,7 @@ function randomWord(){
 
     let html = "";
     for (let i = 0; i < word.length; i++){
-        html += '<input type="text" disabled>';
+        html += '<input type="text">';
     }
 
     inputs.innerHTML = html;
@@ -42,10 +47,10 @@ function initGame(e){
             }
 
         }else{
-            console.log("Letter not found");
+            incorrects.push('$(key)');
         }
     }
-    
+    wrongLetters.innerText = incorrects;
     typingInputs.value = "";
 }
 
